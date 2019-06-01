@@ -1,3 +1,8 @@
+export const actionTypes = {
+  CREATE_PROJECT: 'CREATE_PROJECT',
+  CREATE_PROJECT_ERROR: 'CREATE_PROJECT_ERROR',
+};
+
 export const createProject = (project) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // make async call to database
@@ -10,10 +15,10 @@ export const createProject = (project) => {
       createdAt: new Date(),
     })
       .then(() => {
-        dispatch({ type: 'CREATE_PROJECT', project });
+        dispatch({ type: actionTypes.CREATE_PROJECT, project });
       })
       .catch((err) => {
-        dispatch({ type: 'CREATE_PROJECT_ERRORE', err });
+        dispatch({ type: actionTypes.CREATE_PROJECT_ERROR, err });
       });
   }
 }

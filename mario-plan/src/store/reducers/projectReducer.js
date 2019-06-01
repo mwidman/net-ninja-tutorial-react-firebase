@@ -1,3 +1,5 @@
+import { actionTypes } from '../actions/projectActions';
+
 const initState = {
   projects: [
   ]
@@ -5,12 +7,10 @@ const initState = {
 
 const projectReducer = (state=initState, action) => {
   switch(action.type) {
-    case 'CREATE_PROJECT': {
-      console.log('created project', action.project);
+    case actionTypes.CREATE_PROJECT: {
       return state;
     }
-    case 'CREATE_PROJECT_ERROR': {
-      console.log('create project error', action.err);
+    case actionTypes.CREATE_PROJECT_ERROR: {
       return state;
     }
     default: {
